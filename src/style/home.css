@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+.about-us{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 50px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.info {
+  width: 50%;
+  padding: 20px;
+  text-align: left;
+}
+
+.info p{
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.image{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  /* background: url('https://live.staticflickr.com/124/337160380_f5681cab06_w.jpg') no-repeat center center/cover; */
+  /* background-image: url("https://live.staticflickr.com/124/337160380_f5681cab06_w.jpg") center/cover; */
+}
+
+.image img{
+  max-width: 100%;
+}
+
+@media (max-width: 756px){
+  .info{
+    margin: 0px;
+    padding: 10px;
+  }
+
+  .about-us{
+    margin: 15px;
+    padding: 5px;
+  }
+}

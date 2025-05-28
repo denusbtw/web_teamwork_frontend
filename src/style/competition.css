@@ -1,0 +1,386 @@
+main {
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.main-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+.leftbar {
+  display: none;
+  position: relative;
+  max-width: 200px;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  transition: all 0.3s;
+}
+
+.leftbar.open-menu {
+  display: block;
+}
+
+.card-grid-competition {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  border: 2px solid gray;
+  border-radius: 40px;
+
+  margin: 0 40px;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter:hover {
+  background-color: whitesmoke;
+}
+
+.filter img {
+  width: 40px;
+  margin: 0px 5px;
+}
+
+.search {
+  padding: 10px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.dropdown {
+  border: 2px solid gray;
+  border-radius: 50px;
+  margin: 0px 40px;
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+
+}
+
+.sort-details {
+  padding: 10px;
+  white-space: nowrap
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 40px;
+  background-color: rgb(241, 241, 241);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.dropdown-content p {
+  padding: 12px 16px;
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media (max-width: 576px) {
+  .card-grid-competition {
+    grid-template-columns: 280px;
+  }
+
+  .filter,
+  .dropdown {
+    margin: 0 10px;
+  }
+
+  .filter img {
+    width: 30px;
+  }
+
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .card-grid-competition {
+    grid-template-columns: 260px 260px;
+  }
+
+  .leftbar {
+    display: none;
+  }
+
+  .filter img {
+    width: 30px;
+  }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-grid-competition {
+    grid-template-columns: 260px 260px 260px;
+  }
+
+}
+
+@media (min-width: 1025px) {
+  .card-grid-competition {
+    grid-template-columns: 280px 280px 280px;
+    gap: 60px;
+  }
+
+}
+
+/* left side navigation */
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  background-color: rgb(233, 233, 233);
+
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.sidenav.open {
+  width: 240px;
+  max-height: 400px;
+}
+
+form {
+  margin-top: 30px;
+}
+
+.filters-theme {
+  color: #404040;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.filters-container {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+form h2 {
+  color: #404040;
+  margin: 10px 0;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.sidenav button,
+.sidenav a,
+.sidenav label {
+  cursor: pointer;
+  /* padding: 10px 20px; */
+  text-align: left;
+  color: #404040;
+  /* display: block; */
+  transition: 0.3s;
+}
+
+.sidenav button:hover,
+.sidenav a:hover,
+.sidenav label:hover {
+  color: hsl(0, 0%, 95%);
+}
+
+.sidenav .closebtn {
+  background-color: none;
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  top: 25px;
+  right: 25px;
+  scale: 2.5;
+  transition: all 0.3s;
+}
+
+.sidenav .closebtn:hover{
+  color: black;
+ }
+
+.sidenav .searchbtn {
+  margin-top: 20px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  color: #404040;
+  font-size: 14px;
+  background-color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.sidenav .searchbtn:hover,
+.sidenav .searchbtn:active {
+  color: hsl(0, 0%, 0%);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Додайте ці стилі до вашого competition.css */
+
+.dropdown {
+  border: 2px solid gray;
+  border-radius: 50px;
+  margin: 0px 40px;
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dropdown:hover {
+  background-color: whitesmoke;
+}
+
+.sort-details {
+  padding: 16px ;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+}
+
+.dropdown.active .dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-content p {
+  padding: 12px 16px;
+  margin: 0;
+  color: #333;
+  transition: all 0.2s ease;
+  /*cursor: pointer;*/
+  border-radius: 4px;
+}
+
+.dropdown-content p:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-content p:active {
+  background-color: #e0e0e0;
+  transform: scale(0.98);
+}
+
+/* Додаткові стилі для активного стану */
+.dropdown.active {
+  background-color: #f5f5f5;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* competition.css - додайте ці стилі */
+
+.filter {
+  display: flex;
+  align-items: center;
+  border: 2px solid gray;
+  border-radius: 40px;
+  margin: 0 40px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.filter:hover {
+  background-color: whitesmoke;
+}
+
+.filter.active {
+  background-color: whitesmoke;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.filter img {
+  width: 40px;
+  margin-right: 8px;
+}
+
+.filter-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 240px;
+  padding: 16px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+}
+
+.filter-content.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.filter-content h2 {
+  color: #404040;
+  margin: 0 0 12px 0;
+  font-size: 18px;
+}
+
+.noMatchingHackatons{
+  font-weight: 600;
+  padding: 160px;
+  font-size: 32px;
+}

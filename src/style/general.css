@@ -1,0 +1,42 @@
+/* #375B5A - темно синьо-зелений
+#579DA4 - світліший  темно синьо-зелений
+#2CA5B7 - голубий
+#91BE79 - салатовий
+#5E9369 - зелений
+*/
+
+body {
+  font-family: Roboto, Arial, Times New Roman, Times, serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+  /* анімація для сторінки */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: pageAnimation 1s forwards;
+}
+
+@keyframes pageAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1, h2{ 
+  margin: 30px 0;
+}

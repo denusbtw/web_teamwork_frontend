@@ -1,0 +1,161 @@
+*, h1 {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    position: relative;
+    align-items: center;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 35px;
+}
+
+.preview {
+    background-color: whitesmoke;
+    width: 100%;
+    padding: 50px;
+    margin: 40px 0px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.left-side {
+    align-items: start;
+    text-align: left;
+    padding: 0 60px;
+    margin: 30px 0;
+    background-color: whitesmoke;
+}
+
+.image-container {
+    display: inline-block;
+}
+
+.hackathon-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 11px;
+}
+
+.countdown-box {
+    display: flex;
+    gap: 15px;
+    text-align: center;
+}
+
+.title,
+.countdown-box {
+    padding: 10px 0;
+}
+
+.join-button {
+    background-color: #679897;
+    border: none;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.right-side {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 0 30px;
+    background-color: white;
+}
+
+.deadline,
+.location,
+.prize,
+.theme,
+.hackathon-organizer {
+    margin: 30px 0;
+}
+
+.location img {
+    width: 20px;
+    margin: 0 10px;
+}
+
+.prize {
+    color: rgb(16, 16, 100);
+    text-decoration: underline dotted rgb(16, 16, 100);
+}
+
+/* .location {}
+.theme {}
+.hackathon-organizer {} */
+
+.second-section {
+    background-color: whitesmoke;
+    color: white;
+    padding: 50px 60px;
+}
+
+.description,
+.rules {
+    margin: 30px 0;
+}
+
+@media (max-width: 500px) {
+    .preview {
+        flex-direction: column;
+    }
+
+    .left-side {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .countdown-box {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .right-side {
+        margin: 0;
+    }
+
+}
+
+.banner{
+    display: none;
+    position: absolute;
+    top: 20px;
+
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.banner p{
+    font-size: 16px;
+    padding: 10px;
+}
+
+.banner button{
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+    padding: 10px 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.banner button:hover{
+    background-color: #679897;
+}

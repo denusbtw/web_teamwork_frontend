@@ -1,0 +1,128 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+body{
+  background-color: whitesmoke;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+  text-align: left;
+}
+
+.lboard_section{
+  width: 70%; /* change later for diffrent display*/
+  background-color: rgb(125, 216, 230);
+  padding: 25px 40px;
+  margin-bottom: 40px;
+  position: relative;
+  border-radius: 5px; 
+  transition: background-color 0.3s;
+}
+
+.lboard_section .lboard_tabs ul{
+	display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.lboard_section .lboard_tabs ul li{
+	font-size: 18px;
+	font-weight: 600;
+	color: #3a3d51;
+	cursor: pointer;
+}
+
+.lboard_section .lboard_tabs ul li:hover,
+.lboard_section .lboard_tabs ul li.active{
+	color: #fff;
+}
+
+/* Подумати чи можна якось змінити */
+.lboard_wrap{
+  margin-top: 20px;
+	background: #f5f6f7;
+	border-radius: 5px;
+}
+
+.lboard_wrap .lboard_item{
+	padding: 25px;
+}
+
+.lboard_wrap .lboard_mem{
+	display: flex;
+	align-items: center;
+	padding: 15px 10px;
+	border-bottom: 3px solid rgb(125, 216, 230);
+}
+
+.lboard_wrap .lboard_mem:last-child{
+	border-bottom: 0;
+}
+
+.lboard_wrap .lboard_mem .name_bar{
+	margin: 0 20px;
+	width: calc(100% - 150px);
+}
+
+.lboard_wrap .lboard_mem .name_bar p{
+	color: #3a3d51;
+}
+
+.lboard_wrap .lboard_mem .name_bar p span{
+	margin-right: 5px;
+}
+
+.lboard_wrap .lboard_mem .points{
+  white-space: nowrap;
+	color: #3a3d51;
+}
+
+.searchbar-section {
+  margin: 0 0 50px 0;
+}
+
+.searchbar-section div {
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  transition: padding 0.4s, border-radius 0.3s;
+}
+
+.searchbar-section input {
+  padding: 15px;
+  border-radius: 20px;
+  border: 1px solid rgb(62, 45, 47);
+}
+
+.search-icon {
+  align-self: center;
+  height: 30px;
+  padding-left: 10px;
+  transition: transform 0.2s;
+}
+
+.search-icon:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+@media (min-width: 576px) {
+  /* .searchbar-section div {
+    width: 50%;
+  } */
+}
+
+@media (max-width: 768px) {
+  .lboard_section{
+    width: 80%;
+    padding: 15px 10px;
+  }
+}

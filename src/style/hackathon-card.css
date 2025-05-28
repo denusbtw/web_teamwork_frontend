@@ -1,0 +1,146 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: 280px 280px 280px;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+.card {
+  border-radius: 25px;
+  background-color: white;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  border-radius: 10px;
+  box-shadow: 5px 5px hsl(0, 0%, 50%);
+  border-radius: 25px;
+}
+
+.card:hover .overlay,
+.card:hover .overlay::before {
+  background-color: rgb(167, 223, 238);
+}
+
+.image-content {
+  position: relative;
+  row-gap: 5px;
+  border-radius: 25px;
+}
+
+.image-content,
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgb(199, 231, 240);
+
+  border-radius: 25px 25px 0 25px;
+  transition: all 0.3s;
+}
+
+.overlay::before,
+.overlay::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  background-color: rgb(199, 231, 240);
+  transition: all 0.3s;
+}
+
+.overlay::after {
+  border-radius: 0 25px 0 0;
+  background-color: white;
+}
+
+.card-img {
+  z-index: 1;
+  height: 80%;
+  width: 80%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.name {
+  font-size: 18px;
+  padding: 5px 0;
+  margin: 10px 0;
+  z-index: 1;
+}
+
+.theme,
+.date {
+  padding: 5px 0;
+  font-size: 16px;
+}
+
+.rules, .theme{
+  margin: 5px 0;
+}
+
+.rules {
+  margin-bottom: 10px;
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+
+.button {
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  margin: 14px;
+  cursor: pointer;
+  background-color: rgb(199, 231, 240);
+  transition: all 0.3;
+}
+
+.button:hover {
+  background-color: rgb(167, 223, 238);
+}
+
+
+@media (max-width: 576px) {
+  .card-grid {
+    grid-template-columns: 280px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 280px 280px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: 260px 260px 260px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .card-grid {
+    grid-template-columns: 280px 280px 280px;
+    gap: 60px;
+  }
+
+}
