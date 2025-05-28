@@ -14,7 +14,7 @@ export function UserProvider({ children }) {
 
         async function fetchUser() {
             try {
-                const response = await fetch('http://localhost:8000/api/v1/users/me/', {
+                const response = await fetch('https://web-teamwork-backend.onrender.com/api/v1/users/me/', {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }

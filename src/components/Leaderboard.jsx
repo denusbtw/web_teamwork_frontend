@@ -30,7 +30,7 @@ const Leaderboard = ({ searchQuery = "" }) => {
         const params = new URLSearchParams({ period });
         if (search.trim()) params.append('search', search.trim());
 
-        const response = await fetch(`http://localhost:8000/api/v1/leaderboard?${params.toString()}`);
+        const response = await fetch(`https://web-teamwork-backend.onrender.com/api/v1/leaderboard?${params.toString()}`);
         if (!response.ok) throw new Error(`Failed to fetch leaderboard for ${period}`);
         const data = await response.json();
         return data;

@@ -47,7 +47,7 @@ function LoginSignup() {
         }
 
         try {
-            const response = await fetch('http://localhost:8000/api/v1/users/', {
+            const response = await fetch('https://web-teamwork-backend.onrender.com/api/v1/users/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ function LoginSignup() {
             }
 
             // логін одразу після успішної реєстрації
-            const loginResponse = await fetch('http://localhost:8000/api/token/', {
+            const loginResponse = await fetch('https://web-teamwork-backend.onrender.com/api/token/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -98,7 +98,7 @@ function LoginSignup() {
         const password = document.getElementById("password").value.trim();
 
         try {
-            const response = await fetch('http://localhost:8000/api/token/', {
+            const response = await fetch('https://web-teamwork-backend.onrender.com/api/token/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

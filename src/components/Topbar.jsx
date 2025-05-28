@@ -5,7 +5,7 @@ import { UserContext } from "../UserContext";
 
 function Topbar() {
 
-  const { user, role } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const navigate = useNavigate();
   const handleNavigate = () => {
@@ -13,18 +13,8 @@ function Topbar() {
       navigate("/LoginSignup");
       return;
     }
-
-    if (role === "host") {
-      navigate(`/host/${user.uid}`);
-    } else if (role === "user") {
-      navigate(`/user/${user.uid}`);
-    } else {
-      console.error("Problem in loading topBar navigation");
-      // navigate("/loading");
-      // navigate("/unauthorized");
-    }
+    navigate(`/user/me`);
   };
-
 
   return (
     <>

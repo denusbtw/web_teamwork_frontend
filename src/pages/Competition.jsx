@@ -42,7 +42,7 @@ function Competition() {
         if (searchQuery.trim() !== '') {
             const query = searchQuery.toLowerCase();
             filtered = filtered.filter((hackathon) =>
-                hackathon.name.toLowerCase().includes(query) ||
+                hackathon.title.toLowerCase().includes(query) ||
                 (hackathon.description && hackathon.description.toLowerCase().includes(query))
             );
         }
@@ -107,7 +107,7 @@ function Competition() {
 
     async function fetchCategories() {
         try {
-            const response = await fetch('http://localhost:8000/api/v1/categories/');
+            const response = await fetch('https://web-teamwork-backend.onrender.com/api/v1/categories/');
             if (!response.ok) {
                 throw new Error('Failed to fetch categories');
             }
@@ -137,7 +137,7 @@ function Competition() {
                 params.append('ordering', `${prefix}${sortConfig.field === 'date' ? 'start_datetime' : sortConfig.field}`);
             }
 
-            const url = `http://localhost:8000/api/v1/hackathons/?${params.toString()}`
+            const url = `https://web-teamwork-backend.onrender.com/api/v1/hackathons/?${params.toString()}`
             const response = await fetch(url);
             if (!response.ok) {
                 throw new Error('Failed to fetch hackathons');

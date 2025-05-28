@@ -16,7 +16,7 @@ function HackathonDetails() {
     useEffect(() => {
         async function fetchHackathon() {
             try {
-                const response = await fetch(`http://localhost:8000/api/v1/hackathons/${id}/`);
+                const response = await fetch(`https://web-teamwork-backend.onrender.com/api/v1/hackathons/${id}/`);
                 if (!response.ok) throw new Error("Failed to fetch hackathon");
 
                 const data = await response.json();
@@ -46,7 +46,7 @@ function HackathonDetails() {
             button.innerHTML = 'Joining...';
             button.disabled = true;
 
-            const response = await fetch(`http://localhost:8000/api/v1/hackathons/${hackathon.id}/participants/`, {
+            const response = await fetch(`https://web-teamwork-backend.onrender.com/api/v1/hackathons/${hackathon.id}/participants/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

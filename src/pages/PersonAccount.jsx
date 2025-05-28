@@ -20,7 +20,7 @@ function PersonAccount() {
     const [loadingParticipants, setLoadingParticipants] = useState(true);
 
     const token = localStorage.getItem("accessToken");
-    const baseURL = "http://localhost:8000";
+    const baseURL = "https://web-teamwork-backend.onrender.com";
 
     useEffect(() => {
         if (!token) return;

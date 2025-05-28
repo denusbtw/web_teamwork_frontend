@@ -16,7 +16,7 @@ function Home() {
     async function fetchHackathons() {
         setLoading(true);
         try {
-            const response = await fetch('http://localhost:8000/api/v1/hackathons/');
+            const response = await fetch('https://web-teamwork-backend.onrender.com/api/v1/hackathons/');
             if (!response.ok) {
                 throw new Error('Failed to fetch hackathons');
             }

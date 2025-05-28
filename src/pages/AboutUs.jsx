@@ -23,7 +23,7 @@ const developers = [
   },
   {
     name: "Vadym",
-    role: "team mascot",
+    role: "Tech Lead",
     bio: "Team's talisman, always bringing positive energy and inspiration to every project.",
     img: "/images/devImages/vadym.jpg",
     imgStyle: { objectPosition: 'top' },
