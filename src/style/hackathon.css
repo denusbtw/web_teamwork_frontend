@@ -20,15 +20,18 @@ main{
     padding: 50px;
     margin: 40px 0px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 .left-side {
     align-items: start;
     text-align: left;
-    padding: 0 60px;
+    padding: 0 30px 0 80px; 
     margin: 30px 0;
     background-color: whitesmoke;
+    flex: 1;
+    min-width: 300px;
 }
 
 .image-container {
@@ -37,6 +40,7 @@ main{
 
 .hackathon-image {
     width: 100%;
+    max-width: 400px;
     object-fit: cover;
     border-radius: 11px;
 }
@@ -60,14 +64,19 @@ main{
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .right-side {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 10px 20px;
-    margin: 0 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 10px 0px;
     background-color: white;
+    flex: 1;
+    min-width: 250px;
+    height: fit-content;
 }
 
 .deadline,
@@ -75,22 +84,43 @@ main{
 .prize,
 .theme,
 .hackathon-organizer {
-    margin: 30px 0;
+    margin: 25px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.deadline {
+    font-weight: 600;
+    color: #333;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
 }
 
 .location img {
-    width: 20px;
-    margin: 0 10px;
+    width: 22px;
+    height: 22px;
+    margin-right: 12px;
 }
 
 .prize {
-    color: rgb(16, 16, 100);
-    text-decoration: underline dotted rgb(16, 16, 100);
+    color: #1e40af;
+    text-decoration: underline dotted #1e40af;
+    font-weight: 600;
+    font-size: 18px;
 }
 
-/* .location {}
-.theme {}
-.hackathon-organizer {} */
+.theme {
+    background-color: #f3f4f6;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #679897;
+    font-weight: 500;
+    margin: 80px 0;
+}
 
 .second-section {
     background-color: whitesmoke;
@@ -100,8 +130,103 @@ main{
 
 .description,
 .rules {
+    font-size: 20px;
     margin: 30px 0;
 }
+
+@media (max-width: 768px) {
+    .preview {
+        flex-direction: column;
+        gap: 20px;
+        padding: 30px 20px;
+    }
+
+    .left-side {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        min-width: unset;
+    }
+
+    .countdown-box {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .right-side {
+        margin: 0;
+        min-width: unset;
+        padding: 25px;
+    }
+
+    .hackathon-banner {
+        left: 10px !important;
+        right: 10px !important;
+        width: calc(100% - 20px) !important;
+        top: 10px !important;
+    }
+}
+
+.hackathon-banner {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    
+    background-color: white;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    border: none;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.hackathon-banner::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.hackathon-banner p {
+    font-size: 16px;
+    padding: 10px 0;
+    margin-bottom: 15px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.hackathon-banner button {
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    padding: 12px 20px;
+    border: 2px solid #679897;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    color: #679897;
+    font-weight: 500;
+}
+
+.hackathon-banner button:hover {
+    background-color: #679897;
+    color: white;
+    transform: translateY(-2px);
+}
+
 
 @media (max-width: 500px) {
     .preview {
@@ -126,36 +251,4 @@ main{
         margin: 0;
     }
 
-}
-
-.banner{
-    display: none;
-    position: absolute;
-    top: 20px;
-
-    background-color: white;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    transition: all 0.3s;
-}
-
-.banner p{
-    font-size: 16px;
-    padding: 10px;
-}
-
-.banner button{
-    cursor: pointer;
-    font-size: 16px;
-    margin: 10px;
-    padding: 10px 15px;
-    border: 1px solid black;
-    border-radius: 10px;
-    transition: all 0.3s;
-}
-
-.banner button:hover{
-    background-color: #679897;
 }

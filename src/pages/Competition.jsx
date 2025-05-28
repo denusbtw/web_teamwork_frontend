@@ -1,17 +1,20 @@
 import '../style/competition.css';
 import Topbar from '../components/Topbar';
 import Card from '../components/Card';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import CheckBox from '../components/CheckBox';
 
 function Competition() {
-    const [isFilterOpen, setIsFilterOpen] = useState(false);
+    const [isFilterOpen, setIsFilterOpen] = useState(false); // Змінено стан для фільтрів
     const [selectedFilters, setSelectedFilters] = useState([]);
+    const [filteredHackathons, setFilteredHackathons] = useState([]);
     const [hackathons, setHackathons] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
-    const [sortConfig, setSortConfig] = useState({ field: '', order: 'asc' });
+    const [sortBy, setSortBy] = useState('');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const [sortConfig, setSortConfig] = useState({ field: '', order: 'asc' });
     const [categories, setCategories] = useState([]);
 
 
@@ -24,6 +27,54 @@ function Competition() {
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
     };
+
+    const applyFiltersAndSearch = () => {
+        let filtered = [...hackathons];
+
+        if (selectedFilters.length > 0) {
+            filtered = filtered.filter((hackathon) =>
+                selectedFilters.some((filter) =>
+                    hackathon.theme && hackathon.theme.includes(filter)
+                )
+            );
+        }
+
+        if (searchQuery.trim() !== '') {
+            const query = searchQuery.toLowerCase();
+            filtered = filtered.filter((hackathon) =>
+                hackathon.name.toLowerCase().includes(query) ||
+                (hackathon.description && hackathon.description.toLowerCase().includes(query))
+            );
+        }
+
+        // Додано сортування
+        filtered = sortHackathons(filtered, sortBy);
+
+        setFilteredHackathons(filtered);
+    };
+
+    // Функція для сортування
+    const sortHackathons = (hackathons, sortType) => {
+        const sorted = [...hackathons];
+
+        switch (sortType) {
+            case 'prize':
+                return sorted.sort((a, b) => (b.prize || 0) - (a.prize || 0));
+            case 'date':
+                return sorted.sort((a, b) => {
+                    const dateA = a.date?.toDate ? a.date.toDate() : new Date(a.date?.seconds * 1000);
+                    const dateB = b.date?.toDate ? b.date.toDate() : new Date(b.date?.seconds * 1000);
+                    return dateA - dateB;
+                });
+            default:
+                return sorted;
+        }
+    };
+
+    useEffect(() => {
+        applyFiltersAndSearch();
+    }, [selectedFilters, searchQuery, hackathons, sortBy]); // Додано sortBy в залежності
+
 
     const handleSortSelect = (field) => {
         setSortConfig(prev => {

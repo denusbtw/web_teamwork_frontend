@@ -1,18 +1,30 @@
-import {Link, useNavigate} from "react-router-dom";
-import React, {useContext} from "react";
-import {UserContext} from "../UserContext";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { UserContext } from "../UserContext";
+// import { getUserRoleFromDatabase } from "../databaseService";
 
 function Topbar() {
-  const { user } = useContext(UserContext);
+
+  const { user, role } = useContext(UserContext);
 
   const navigate = useNavigate();
   const handleNavigate = () => {
-    if (user) {
-      navigate(`/user/me`);
-    } else {
+    if (!user) {
       navigate("/LoginSignup");
+      return;
+    }
+
+    if (role === "host") {
+      navigate(`/host/${user.uid}`);
+    } else if (role === "user") {
+      navigate(`/user/${user.uid}`);
+    } else {
+      console.error("Problem in loading topBar navigation");
+      // navigate("/loading");
+      // navigate("/unauthorized");
     }
   };
+
 
   return (
     <>
@@ -31,7 +43,7 @@ function Topbar() {
                 Hackathons
               </Link>
             </li>
-            
+
             {/* перевірка чи користувач залогінився */}
             {user ? (
               <li className="list-item">

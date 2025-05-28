@@ -1,7 +1,11 @@
 import AccountTopbar from "../components/AcountTopbar";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import CreateHackathon from "../components/OrganizationAccountComponents/CreateHackathon";
 
 function HostAccount() {
+    const [user, setUser] = useState(null);
+    const [loadingUser, setLoadingUser] = useState(true);
+
     const [activeTab, setActiveTab] = useState("Active");
     // saving active tab
     useEffect(() => {
@@ -18,7 +22,8 @@ function HostAccount() {
             <div className="account-bg">
                 <div className="inner-info">
                     <img alt="" src="/images/account-pic.png" className="account-pic" />
-                    <p className="account-nick">add nick here</p>
+                    {/* <p className="account-nick">{user.username}</p> */}
+                    <p className="account-nick">setuser</p>
                 </div>
             </div>
             <section className="applications">
@@ -41,6 +46,11 @@ function HostAccount() {
                         Completed
                     </button>
                 </div>
+
+                <div id="Active" className="tabcontent" style={{ display: activeTab === "Active" ? "block" : "none" }}>
+                    <CreateHackathon />
+                </div>
+
 
                 <div id="Active" className="tabcontent" style={{ display: activeTab === "Active" ? "block" : "none" }}>
                     <div className="header-container" style={{ display: "flex", justifyContent: "space-around", flexDirection: "row" }}>
@@ -72,6 +82,12 @@ function HostAccount() {
                     className="tabcontent"
                     style={{ display: activeTab === "In_process" ? "block" : "none" }}
                 >
+                    <h2>In Process Hackathons</h2>
+                    <p>List of hackathons that are currently in process.</p>
+                    <h2>Your hackathons</h2>
+                    <section className="hostHackathons">
+
+                    </section>
 
                 </div>
 
@@ -80,7 +96,8 @@ function HostAccount() {
                     className="tabcontent"
                     style={{ display: activeTab === "Completed" ? "block" : "none" }}
                 >
-
+                    <h2>Completed Hackathons</h2>
+                    <p>List of hackathons that have been completed.</p>
                 </div>
             </section >
 

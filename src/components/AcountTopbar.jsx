@@ -1,22 +1,40 @@
-import {Link} from "react-router-dom";
-import React, {useContext, useState} from "react";
-import {auth} from "../LoginSignup/Firebase";
-import {UserContext} from "../UserContext";
+import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { auth } from "../LoginSignup/Firebase";
+import { UserContext } from "../UserContext";
+import '../style/toggleMenu.css'
 
 function AccountTopbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    }
-
+    const [isPanelOpen, setIsPanelOpen] = useState(false);
     const { setUser } = useContext(UserContext);
+
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    const handleOpenComponent = () => setIsPanelOpen(true);
+    const handleCloseComponent = () => setIsPanelOpen(false);
+
     function handleLogout() {
         auth.signOut().then(() => { setUser(null); })
             .catch((error) => {
                 console.error("Error signing out: ", error);
             });
     }
+
+    const handleDeleteAccount = () => {
+        const user = auth.currentUser;
+        if (user) {
+            user.delete().then(() => {
+                setUser(null);
+            }).catch((error) => {
+                console.error("Error deleting account: ", error);
+            });
+        }
+    };
+
+    const handleChangeName = () => {
+        // Тут можна додати реальну логіку оновлення імені через Firebase
+        alert("Name change feature coming soon!");
+    };
 
     return (
         <>
@@ -30,7 +48,8 @@ function AccountTopbar() {
 
                 <div className="icons">
 
-                    <img alt="" src="https://www.svgrepo.com/show/456992/account.svg"></img>
+                    <img onClick={handleOpenComponent} alt="settings" src="https://www.svgrepo.com/show/456992/account.svg"></img>
+
 
                     <img
                         alt=""
@@ -67,6 +86,24 @@ function AccountTopbar() {
                     </div>
                 </div>
             </header>
+
+            {isPanelOpen && (
+                <div className="overlay-menu">
+                    <div className="account-panel">
+                        <button className="close-btn" onClick={handleCloseComponent}>×</button>
+                        <h2>Account Settings</h2>
+                        <div>
+                            <input placeholder="Enter new name"></input>
+                            <button onClick={handleChangeName}>Change Name</button>
+                        </div>
+                        <div>
+                            <input placeholder="Input image"></input>
+                            <button onClick={handleChangeName}>Change account image</button>
+                        </div>
+                        <button onClick={handleDeleteAccount} className="delete-btn">Delete Account</button>
+                    </div>
+                </div>
+            )}
 
         </>
     );

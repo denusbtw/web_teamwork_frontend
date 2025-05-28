@@ -1,0 +1,75 @@
+.title{
+    display: block;
+    width: 100%;
+}
+
+.how-it-works {
+    text-align: center;
+    padding: 0rem 3rem 3rem 3rem;
+    margin: 0 15px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.step {
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+/* Градієнти для кожної картки */
+.step:nth-child(1) {
+    background: linear-gradient(135deg, #6a85b6, #A3C6D9);
+}
+
+.step:nth-child(2) {
+    background: linear-gradient(135deg, #A3C6D9, #A7D5C1);
+}
+
+.step:nth-child(3) {
+    background: linear-gradient(135deg, #A7D5C1, #BEE7C3);
+}
+
+.step:nth-child(4) {
+    background: linear-gradient(135deg, #BEE7C3, #9ECFAE);
+}
+
+
+/* .step:nth-child(1) {
+    background: linear-gradient(135deg, #323a95, #59b2cd);
+}
+
+.step:nth-child(2) {
+    background: linear-gradient(135deg, #59b2cd, #48a68a);
+}
+
+.step:nth-child(3) {
+    background: linear-gradient(135deg, #48a68a, #59c085);
+}
+
+.step:nth-child(4) {
+    background: linear-gradient(135deg, #59c085, #379532);
+} */
+
+.step:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.05);
+}
+
+
+.step img {
+    width: 60px;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 425px) {
+    .how-it-works{
+        margin: 0;
+    }
+}

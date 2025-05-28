@@ -1,7 +1,9 @@
 import Card from "../components/Card";
 import Leaderboard from "../components/Leaderboard";
 import Topbar from "../components/Topbar";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import Instruction from "../components/HomeComponents/Instruction";
+import { Link, useNavigate } from 'react-router-dom';
 
 function Home() {
     const [hackathons, setHackathons] = useState([]);
@@ -33,25 +35,41 @@ function Home() {
     return (
         <>
             <Topbar />
-            <section className="about-us">
-                <div className="info">
-                    <h1>About us</h1>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, dolorum. Minus nostrum, deleniti harum
-                        provident similique tempore non eum exercitationem, eaque accusantium itaque nam quae in aliquam quia facilis
-                        molestias.</p>
-                </div>
-                <div className="image">
-                    <img alt=" " src="https://live.staticflickr.com/124/337160380_f5681cab06_w.jpg" />
-                </div>
-            </section>
-            <h2>Popular Hackathons</h2>
-            <div className="card-grid">
-                {hackathons.slice(0, 3).map((hackathon) => (
-                    <Card key={hackathon.id} hackathon={hackathon} />
-                ))}
-            </div>
-            <h2>Leaderboard</h2>
-            <Leaderboard />
+            <main>
+                <section section className="section-block" >
+                    <div className="about-us">
+                        <div className="info">
+                            <h1>About us</h1>
+                            <p> We are a platform that simplifies hackathon participation by providing easy registration and management tools for participants. We handle the technical side of event coordination, making it easier for participants to focus on what matters most - building amazing projects. Whether you're a first-time hackathon participant or a seasoned competitor, our platform streamlines your journey from registration to participation. We connect talented individuals with exciting hackathon opportunities while taking care of all the administrative details.</p>
+                            <Link to={`/about-us`}>
+                                <button className="more-button">More</button>
+                            </Link>
+                        </div>
+                        <div className="image">
+                            <img alt=" " src="https://live.staticflickr.com/124/337160380_f5681cab06_w.jpg"></img>
+                        </div>
+                    </div >
+
+                </section>
+                <section section className="section-block" >
+                    <h2 className='home-title'>How it works</h2>
+                    <Instruction />
+                </section>
+                <section section className="section-block" >
+                    <h2 className="home-title">Popular Hackathons</h2>
+                    <div className="card-grid">
+                        {hackathons.slice(0, 3).map((hackathon) => (
+                            <Card key={hackathon?.hackathon_ID} hackathon={hackathon} />
+                        ))}
+                    </div>
+                </section>
+
+                < section className="section-block" >
+                    <h2 className="home-title">Leaderboard</h2>
+                    <Leaderboard searchTerm={""} top={10} />
+                </section>
+            </main >
+
         </>
     );
 }
