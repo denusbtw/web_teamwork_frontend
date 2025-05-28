@@ -1,14 +1,16 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Competition from "./pages/Competition";
 import PersonAccount from "./pages/PersonAccount";
+import AboutUs from "./pages/AboutUs";
+
 
 import Unauthorized from "./LoginSignup/Unauthorized";
 import Rating from "./pages/Rating";
 import Footer from "./components/Footer";
 import HackathonDetails from "./pages/HackathonDetails";
 import LoginSignup from "./LoginSignup/LoginSignup";
-import {UserProvider} from "./UserContext";
+import { UserProvider } from "./UserContext";
 import HostAccount from "./pages/HostAccount";
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
     <BrowserRouter>
       <UserProvider>
         <Routes>
+          <Route path="/about-us" element={<AboutUs />}></Route>
+
           <Route path="/" element={<Home />} />
           <Route path="/competition" element={<Competition />} />
           <Route path="/rating" element={<Rating />} />
@@ -25,8 +29,8 @@ function App() {
           <Route path="/LoginSignup" element={<LoginSignup />} />
           {/* <Route path="/UploadData" element={<UploadData />} /> */}
           <Route path="/user/me" element={
-              <PersonAccount />
-          }/>
+            <PersonAccount />
+          } />
           <Route path="/unauthorized" element={<Unauthorized />} />
         </Routes>
       </UserProvider>
