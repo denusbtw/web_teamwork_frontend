@@ -88,12 +88,11 @@ function PersonAccount() {
 
             <div
                 className="account-bg"
-                style={{ backgroundImage: `url(${baseURL}${user.profile_background})` }}
             >
                 <div className="inner-info">
                     <img
                         alt="Profile"
-                        src={`${baseURL}${user.profile_picture}`}
+                        src={`images/account-pic.png`}
                         className="account-pic"
                     />
                     <p className="account-nick">{user.username}</p>

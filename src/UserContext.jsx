@@ -27,6 +27,7 @@ export function UserProvider({ children }) {
                 }
 
                 const data = await response.json();
+                console.log(data);
                 setUser(data);  // data має містити `id`, `email`, `role` тощо
             } catch (err) {
                 console.error("Failed to fetch user", err);
