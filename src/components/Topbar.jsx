@@ -5,11 +5,11 @@ import { UserContext } from "../UserContext";
 
 function Topbar() {
 
-  const { user } = useContext(UserContext);
+  const { user, loading } = useContext(UserContext);
 
   const navigate = useNavigate();
   const handleNavigate = () => {
-    if (!user) {
+    if (loading) {
       navigate("/LoginSignup");
       return;
     }
@@ -35,7 +35,7 @@ function Topbar() {
             </li>
 
             {/* перевірка чи користувач залогінився */}
-            {user ? (
+            {loading ? null :user ? (
               <li className="list-item">
                 <p onClick={handleNavigate}>
                   My account

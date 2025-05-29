@@ -4,11 +4,13 @@ export const UserContext = createContext();
 
 export function UserProvider({ children }) {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const token = localStorage.getItem('accessToken');
         if (!token) {
             setUser(null);
+            setLoading(false);
             return;
         }
 
@@ -29,6 +31,8 @@ export function UserProvider({ children }) {
             } catch (err) {
                 console.error("Failed to fetch user", err);
                 setUser(null);
+            } finally {
+                setLoading(false);
             }
         }
 
