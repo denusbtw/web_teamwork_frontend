@@ -92,7 +92,7 @@ function PersonAccount() {
                 <div className="inner-info">
                     <img
                         alt="Profile"
-                        src={`images/account-pic.png`}
+                        src="/images/account-pic.png"
                         className="account-pic"
                     />
                     <p className="account-nick">{user.username}</p>
